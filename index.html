@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Project Clear Eyes - PublicArchive.wiki</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: #f6f6f6;
+    font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #202122;
+    font-size: 14px;
+  }
+  #wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: #fff;
+    border-left: 1px solid #a2a9b1;
+    border-right: 1px solid #a2a9b1;
+    min-height: 100vh;
+  }
+  #topbar {
+    background: #eaecf0;
+    border-bottom: 1px solid #a2a9b1;
+    padding: 6px 20px;
+    font-size: 12px;
+    color: #54595d;
+    display: flex;
+    justify-content: space-between;
+  }
+  #wordmark {
+    padding: 8px 24px 0 24px;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+  #wordmark .logo {
+    font-family: "Linux Libertine", Georgia, serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: #202122;
+  }
+  #wordmark .tagline {
+    font-size: 11.5px;
+    color: #72777d;
+    font-style: italic;
+  }
+  #fictionbar {
+    background: #f0f0f2;
+    border-bottom: 1px solid #d0d3d6;
+    padding: 5px 24px;
+    font-size: 11px;
+    color: #72777d;
+  }
+  #fictionbar a { color: #54595d; }
+  #header {
+    padding: 14px 24px 6px 24px;
+    border-bottom: 1px solid #a2a9b1;
+  }
+  #header h1 {
+    font-family: "Linux Libertine", Georgia, "Times New Roman", serif;
+    font-size: 30px;
+    font-weight: normal;
+    border-bottom: 3px solid #a2a9b1;
+    padding-bottom: 8px;
+    margin: 0 0 4px 0;
+  }
+  .protect-note {
+    font-size: 11.5px;
+    color: #54595d;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+  .lock {
+    width: 12px; height: 14px;
+    display: inline-block;
+    background: #72777d;
+    clip-path: polygon(20% 40%, 20% 100%, 80% 100%, 80% 40%, 70% 40%, 70% 20%, 30% 20%, 30% 40%);
+  }
+  #content {
+    display: flex;
+    padding: 0 24px 40px 24px;
+    gap: 28px;
+  }
+  #maincol { flex: 1; min-width: 0; }
+  #infobox {
+    width: 280px;
+    flex-shrink: 0;
+    border: 1px solid #a2a9b1;
+    background: #f8f9fa;
+    font-size: 12.5px;
+    margin-top: 18px;
+    align-self: flex-start;
+  }
+  #infobox .ib-title {
+    background: #cfe0f5;
+    text-align: center;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 6px;
+    font-family: "Linux Libertine", Georgia, serif;
+  }
+  #infobox .ib-sub {
+    text-align: center;
+    font-style: italic;
+    padding: 4px 8px 8px 8px;
+    border-bottom: 1px solid #a2a9b1;
+    color: #333;
+  }
+  #infobox table { width: 100%; border-collapse: collapse; }
+  #infobox td, #infobox th {
+    padding: 5px 8px;
+    vertical-align: top;
+    border-top: 1px solid #eaecf0;
+  }
+  #infobox th { text-align: left; font-weight: bold; width: 38%; color: #202122; }
+  .banner {
+    background: #fef6e7;
+    border: 1px solid #e6c675;
+    padding: 8px 12px;
+    font-size: 12.5px;
+    margin: 14px 0;
+    display: flex;
+    gap: 10px;
+  }
+  .banner.dispute { background: #fde7e9; border-color: #d68a94; }
+  .banner-icon { font-size: 22px; line-height: 1; }
+  h2 {
+    font-family: "Linux Libertine", Georgia, "Times New Roman", serif;
+    font-weight: normal;
+    font-size: 22px;
+    border-bottom: 1px solid #a2a9b1;
+    margin-top: 34px;
+    padding-bottom: 4px;
+  }
+  h3 {
+    font-family: "Linux Libertine", Georgia, "Times New Roman", serif;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 22px;
+  }
+  p { line-height: 1.65; margin: 10px 0; }
+  a.wl { color: #0645ad; text-decoration: none; }
+  a.wl:hover { text-decoration: underline; }
+  a.redlink { color: #ba0000; text-decoration: none; }
+  sup.cite { color: #0645ad; font-size: 11px; }
+  sup.cn { color: #0645ad; font-size: 10.5px; }
+  #toc {
+    display: inline-block;
+    border: 1px solid #a2a9b1;
+    background: #f8f9fa;
+    padding: 12px 20px;
+    margin: 18px 0;
+    font-size: 13px;
+  }
+  #toc-title { font-weight: bold; margin-bottom: 6px; }
+  #toc ol { margin: 0; padding-left: 20px; }
+  #toc li { margin: 3px 0; }
+  #toc a { color: #0645ad; text-decoration: none; }
+  blockquote {
+    border-left: 3px solid #a2a9b1;
+    margin: 14px 0;
+    padding: 4px 16px;
+    color: #333;
+    font-size: 13.5px;
+  }
+  .redacted {
+    background: #202122;
+    color: #202122;
+    user-select: none;
+    padding: 0 4px;
+  }
+  #refs {
+    font-size: 12.5px;
+    line-height: 1.6;
+  }
+  #refs ol { padding-left: 24px; }
+  #refs li { margin-bottom: 6px; }
+  .catbox {
+    margin-top: 30px;
+    border-top: 1px solid #a2a9b1;
+    padding-top: 10px;
+    font-size: 12.5px;
+  }
+  .catbox a { color: #0645ad; text-decoration: none; margin-right: 4px;}
+  #footer {
+    border-top: 1px solid #a2a9b1;
+    padding: 14px 24px;
+    font-size: 11.5px;
+    color: #54595d;
+  }
+  .talk-note {
+    font-size: 12px;
+    color: #54595d;
+    margin-top: 4px;
+  }
+  .talk-note a { color: #0645ad; text-decoration: none; }
+</style>
+</head>
+<body>
+<div id="wrap">
+
+  <div id="topbar">
+    <span>From PublicArchive.wiki, the open archive of disputed and unexplained events</span>
+    <span>Article &nbsp;|&nbsp; <a href="Project_Clear_Eyes_Talk.html" style="color:#54595d;">Talk</a> &nbsp;|&nbsp; Read &nbsp;|&nbsp; View history</span>
+  </div>
+
+  <div id="wordmark">
+    <span class="logo">PublicArchive<span style="color:#72777d; font-weight:normal;">.wiki</span></span>
+    <span class="tagline">community-maintained &#8212; not affiliated with any government agency</span>
+  </div>
+
+  <div id="fictionbar">
+    This is an independent, reader-submitted reference archive. Articles are unverified and reflect community claims, not confirmed fact. <a href="#about">About this archive</a>
+  </div>
+
+  <div id="header">
+    <h1>Project Clear Eyes</h1>
+    <div class="protect-note">
+      <span class="lock"></span>
+      This page is semi-protected due to persistent unsourced edits and edit warring.
+    </div>
+    <div class="talk-note">See discussion on the <a class="wl" href="Project_Clear_Eyes_Talk.html">Talk page</a> before making major changes.</div>
+  </div>
+
+  <div id="content">
+    <div id="maincol">
+
+      <div class="banner dispute">
+        <div class="banner-icon">&#9888;</div>
+        <div>
+          <strong>This article's neutrality is disputed.</strong> Editors disagree on whether this subject meets PublicArchive.wiki's notability and verifiability guidelines for fringe theories. Relevant discussion may be found on the <a class="wl" href="Project_Clear_Eyes_Talk.html">talk page</a>. <em>(Learn how and when to remove this message.)</em>
+        </div>
+      </div>
+
+      <div class="banner">
+        <div class="banner-icon">&#128196;</div>
+        <div>
+          <strong>This article possibly contains original research.</strong> Please improve it by verifying the claims made and adding inline citations. Statements consisting only of original research should be removed. <em>(February 2019)</em>
+        </div>
+      </div>
+
+      <p>
+        <strong>Project Clear Eyes</strong> is the informal, publicly circulated name for an alleged classified research program purported to have been active within a United States defense-adjacent black budget agency between approximately 1991 and 1995.<sup class="cite">[1]</sup> The program is claimed, primarily by independent researchers and online communities rather than any confirmed official source, to have investigated methods for temporarily merging two divergent timelines, or "contours," for the stated purpose of selectively suppressing or altering public memory of specific events.<sup class="cn">[citation needed]</sup>
+      </p>
+      <p>
+        No United States government agency has confirmed the existence of Project Clear Eyes, and the subject is generally treated by mainstream sources as an internet conspiracy theory or piece of contemporary folklore.<sup class="cite">[2]</sup> Nonetheless, the theory has attracted sustained attention due to a documented cluster of anomalous analog media recordings — home videos, broadcast recordings, and audio cassettes — dated to early 1995 and originating primarily from the American Midwest, which some researchers argue share unexplained audio and visual characteristics.<sup class="cite">[3]</sup>
+      </p>
+
+      <div id="toc">
+        <div id="toc-title">Contents</div>
+        <ol>
+          <li><a href="#background">1 Background</a></li>
+          <li><a href="#alleged">2 Alleged methodology</a></li>
+          <li><a href="#magneto">3 The "magnetosphere anomaly" claim</a></li>
+          <li><a href="#capture">4 Analog capture phenomenon</a></li>
+          <li><a href="#feb95">5 The February 1995 event</a></li>
+          <li><a href="#reaction">6 Public reaction and the "shared blank" phenomenon</a></li>
+          <li><a href="#response">7 Government response</a></li>
+          <li><a href="#crit">8 Criticism and skepticism</a></li>
+          <li><a href="#pop">9 In popular culture</a></li>
+          <li><a href="#see">10 See also</a></li>
+          <li><a href="#refs">11 References</a></li>
+          <li><a href="#ext">12 External links</a></li>
+        </ol>
+      </div>
+
+      <h2 id="background">Background</h2>
+      <p>
+        References to a program under the name "Clear Eyes" first appeared publicly in 2001 on defense-and-aerospace enthusiast forums, in threads discussing partially redacted budget line items allegedly obtained through a Freedom of Information Act request.<sup class="cite">[4]</sup> The requester, whose identity has not been independently verified, described the material as originating from a broader classified program referred to internally as <strong>CONTOUR</strong>, of which Clear Eyes was reportedly one of at least two subordinate efforts.<sup class="cn">[citation needed]</sup>
+      </p>
+      <p>
+        According to these unverified documents, Clear Eyes functioned as an oversight and targeting body — determining which events or time periods were candidates for intervention — while a second, separately named subprogram, referred to in leaked material as <span class="redacted">Quiet Mercy</span>, was allegedly responsible for carrying out the intervention itself.<sup class="cite">[5]</sup> No corroborating documentation of either subprogram has surfaced through official channels.
+      </p>
+
+      <h2 id="alleged">Alleged methodology</h2>
+      <p>
+        Proponents of the theory describe the program's central hypothesis as follows: two divergent timelines, differing only in a narrow set of outcomes, could be brought into temporary proximity or "folded" against one another, allowing information, and in later iterations of the theory, physical matter, to pass between them before the fold was reversed.<sup class="cn">[citation needed]</sup> The stated experimental goal was not full timeline replacement but a brief, contained overlap sufficient to alter a specific outcome and allow the originating timeline to "reconverge" with minimal detectable divergence.
+      </p>
+      <p>
+        A secondary and more contested claim holds that the program also developed broadcast-based techniques &#8212; sometimes described in forum literature as operating through the vertical blanking interval of analog television signals &#8212; intended to reinforce a preferred version of events across the general population following a fold, in order to stabilize collective memory around the altered outcome.<sup class="cite">[6]</sup> This claim in particular has been dismissed by media historians as technically implausible.<sup class="cite">[7]</sup>
+      </p>
+
+      <h2 id="magneto">The "magnetosphere anomaly" claim</h2>
+      <p>
+        Central to the theory's popular spread is the claim that local, temporary distortions in the Earth's magnetic field were an unintended side effect of a Clear Eyes fold event, rather than a deliberate feature of the program.<sup class="cn">[citation needed]</sup> Believers argue that this distortion had a specific and unanticipated consequence: magnetic storage media in the affected area &#8212; VHS cassettes, compact audio cassettes, and similar consumer analog formats &#8212; became transiently receptive to interference during the anomaly window, recording fragments of audio and video that were never broadcast or intentionally transmitted.<sup class="cite">[8]</sup>
+      </p>
+      <p>
+        No peer-reviewed geophysical literature supports the occurrence of a localized magnetospheric event over the American Midwest in 1995.<sup class="cite">[9]</sup> The National Oceanic and Atmospheric Administration's geomagnetic archives for the relevant period show no anomalous readings at monitoring stations nearest the claimed affected region.<sup class="cite">[10]</sup>
+      </p>
+
+      <h2 id="capture">Analog capture phenomenon</h2>
+      <p>
+        Since approximately 2003, a growing archive of user-submitted analog recordings has been circulated online under the umbrella of this theory. Commonly cited characteristics include:
+      </p>
+      <ul>
+        <li>A persistent low-frequency tone, most often measured near 57&#8211;60 Hz, present under otherwise unrelated recordings.<sup class="cite">[11]</sup></li>
+        <li>Brief (under two-second) intrusions of unidentified audio or video content into unrelated home recordings, sometimes described by submitters as overheard speech or radio chatter.<sup class="cite">[12]</sup></li>
+        <li>Timecode irregularities on camcorder footage, including repeated or skipped seconds.<sup class="cn">[citation needed]</sup></li>
+      </ul>
+      <p>
+        Audio engineers who have reviewed samples of this material in informal capacities have generally attributed the phenomena to mundane causes, including electromagnetic interference from nearby power infrastructure, azimuth misalignment during tape duplication, and confirmation bias in the selection of "anomalous" clips from a much larger body of ordinary interference artifacts common to consumer analog equipment of the era.<sup class="cite">[13]</sup>
+      </p>
+
+      <h2 id="feb95">The February 1995 event</h2>
+      <p>
+        A disproportionate share of submitted artifacts are dated, either by internal timecode or by submitter testimony, to a single week in February 1995. No consistent date within that week has been established; submitter accounts vary by as much as ten days.<sup class="cite">[14]</sup> This inconsistency is cited by skeptics as evidence against a shared underlying event, and by proponents as evidence of the theory's central claim &#8212; that public memory of the event's actual timing was deliberately obscured.
+      </p>
+      <blockquote>
+        "Nobody agrees on the date. That's not a hole in the theory. That's the whole theory."<sup class="cite">[15]</sup>
+      </blockquote>
+
+      <h2 id="reaction">Public reaction and the "shared blank" phenomenon</h2>
+      <p>
+        Since around 2001, informal online surveys have suggested that a notable number of individuals, primarily those who were children or young adults in the affected region during the mid-1990s, report an unusually indistinct or absent memory of February 1995 specifically, despite otherwise ordinary recall of adjacent months.<sup class="cn">[citation needed]</sup> Community researchers have termed this the <em>shared blank</em>. No controlled psychological study of the phenomenon has been published, and mainstream psychologists who have commented on the claim attribute it to ordinary childhood memory attrition combined with the priming effect of being asked a leading question.<sup class="cite">[16]</sup>
+      </p>
+      <p>
+        The theory is frequently discussed alongside the broader <a class="wl" href="https://en.wikipedia.org/wiki/Mandela_effect" target="_blank" rel="noopener">Mandela Effect</a> phenomenon, with some proponents arguing that widely shared false memories of unrelated cultural details (film dialogue, product logos, and similar) originating in the mid-1990s are residual effects of the same alleged program.<sup class="cite">[17]</sup>
+      </p>
+
+      <h2 id="response">Government response</h2>
+      <p>
+        No federal agency has issued a substantive response to inquiries regarding Project Clear Eyes. A 2014 Freedom of Information Act request submitted by a researcher associated with the theory's online community received a standard <em>Glomar</em> response, neither confirming nor denying the existence of responsive records.<sup class="cite">[18]</sup> Proponents cite this response as suggestive; mainstream observers note that a Glomar response is a standard procedural tool used broadly across a wide range of unrelated requests and carries no particular evidentiary weight.<sup class="cite">[19]</sup>
+      </p>
+
+      <h2 id="crit">Criticism and skepticism</h2>
+      <p>
+        Skeptics and debunking communities have raised several recurring objections to the theory:
+      </p>
+      <ul>
+        <li>The absence of any primary source document whose provenance can be independently verified.<sup class="cite">[20]</sup></li>
+        <li>The lack of any consistent, falsifiable date or location for the core event.</li>
+        <li>The tendency of "artifact" submissions to increase in frequency and elaborateness following renewed community interest, consistent with a folkloric feedback loop rather than a fixed historical record.<sup class="cite">[21]</sup></li>
+        <li>Known technical explanations for the majority of cited analog anomalies.</li>
+      </ul>
+      <p>
+        The theory is frequently cited by media scholars as a contemporary example of digitally native, crowd-authored folklore, sometimes grouped alongside other "collaborative mythology" phenomena that emerged from early-2000s internet forum culture.<sup class="cite">[22]</sup>
+      </p>
+
+      <h2 id="pop">In popular culture</h2>
+      <p>
+        The Clear Eyes theory has inspired independent documentary and analog-horror video projects, several of which incorporate purported original artifact footage alongside dramatized witness interviews.<sup class="cn">[citation needed]</sup> Community members generally distinguish between the original body of submitted "found" material and later fictionalized works, though the two are frequently conflated by casual viewers.
+      </p>
+
+      <h2 id="see">See also</h2>
+      <ul>
+        <li><a class="wl" href="https://en.wikipedia.org/wiki/Mandela_effect" target="_blank" rel="noopener">Mandela Effect</a></li>
+        <li><a class="wl" href="https://en.wikipedia.org/wiki/Analog_horror" target="_blank" rel="noopener">Analog horror</a></li>
+        <li><a class="redlink" href="#">Project CONTOUR (alleged)</a></li>
+        <li><a class="wl" href="https://en.wikipedia.org/wiki/False_memory" target="_blank" rel="noopener">Collective false memory</a></li>
+        <li><a class="wl" href="https://en.wikipedia.org/wiki/Glomar_response" target="_blank" rel="noopener">Glomar response</a></li>
+      </ul>
+
+      <h2 id="refs">References</h2>
+      <div id="refs">
+        <ol>
+          <li>Forum archive, "Re: budget line anomalies," retrieved via web archive, 2001.</li>
+          <li>Regional folklore studies newsletter, "Digital-Age Legends," 2009.</li>
+          <li>Independent artifact archive, submission index, ongoing.</li>
+          <li>Original FOIA request thread, requester identity unconfirmed, 2001.</li>
+          <li>Unverified leaked document excerpt, secondary posting, 2004.</li>
+          <li>Community wiki, "Broadcast Insertion Theory," version history.</li>
+          <li>Interview, media historian (declined to be named), 2016.</li>
+          <li>Community wiki, "Magnetosphere Claim — Origins," version history.</li>
+          <li>Geophysical monitoring summary, public archive, 1995 station data.</li>
+          <li>NOAA geomagnetic data archive, regional stations, 1995.</li>
+          <li>Artifact audio analysis thread, waveform comparison, community-submitted.</li>
+          <li>Artifact submission index, "intrusion clips" category.</li>
+          <li>Audio engineering forum, informal review thread.</li>
+          <li>Community-compiled date discrepancy chart, ongoing revision.</li>
+          <li>Quoted community moderator, forum post, 2007.</li>
+          <li>Psychology commentary, "On Leading Questions and Recall," blog post, 2012.</li>
+          <li>Mandela Effect cross-reference thread, community wiki.</li>
+          <li>FOIA response letter, redacted, posted to community archive, 2014.</li>
+          <li>Legal commentary on Glomar responses, general reference.</li>
+          <li>Provenance discussion thread, "Where did the first tape come from?"</li>
+          <li>Folklore studies commentary, submission frequency analysis.</li>
+          <li>Media studies paper, "Collaborative Mythology in Forum Culture," 2018.</li>
+        </ol>
+      </div>
+
+      <h2 id="ext">External links</h2>
+      <ul>
+        <li><a class="wl" href="#">Community artifact archive (unaffiliated)</a></li>
+        <li><a class="wl" href="#">"The Shared Blank" — independent documentary project</a></li>
+        <li><a class="wl" href="#">Skeptic community rebuttal index</a></li>
+      </ul>
+
+      <div class="catbox">
+        Categories:
+        <a href="#">Alleged government projects</a>
+        <a href="#">Internet folklore</a>
+        <a href="#">Conspiracy theories in the United States</a>
+        <a href="#">1995 in the United States</a>
+        <a href="#">Mandela Effect</a>
+      </div>
+
+    </div>
+
+    <div id="infobox">
+      <div class="ib-title">Project Clear Eyes</div>
+      <div class="ib-sub">Alleged classified research program</div>
+      <table>
+        <tr><th>Also known as</th><td>Clear Eyes; alleged CONTOUR subprogram</td></tr>
+        <tr><th>Alleged agency</th><td class="redacted">██████████████</td></tr>
+        <tr><th>Active</th><td>c. 1991&#8211;1995 (unconfirmed)</td></tr>
+        <tr><th>Status</th><td>Officially unacknowledged</td></tr>
+        <tr><th>Purpose (alleged)</th><td>Temporary timeline convergence for memory suppression</td></tr>
+        <tr><th>Related programs</th><td><span class="redacted">Quiet Mercy</span> (alleged, execution)</td></tr>
+        <tr><th>Primary claimed region</th><td>American Midwest, United States</td></tr>
+        <tr><th>Key incident</th><td>February 1995 event (disputed date)</td></tr>
+        <tr><th>Public disclosure</th><td>Online forums, 2001&#8211;present</td></tr>
+        <tr><th>Classification</th><td>None (theory only; no confirmed classification exists)</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div id="footer">
+    <div id="about" style="margin-bottom:10px; padding-bottom:10px; border-bottom:1px solid #eaecf0;">
+      <strong>About this archive:</strong> PublicArchive.wiki is an independent, reader-maintained wiki collecting claims, testimony, and submitted media related to disputed and unexplained events. It is not affiliated with Wikipedia, the Wikimedia Foundation, or any government entity. Articles reflect the claims of contributors and submitters and are not verified factual records. This specific article and its associated media are part of an independent creative documentary project.
+    </div>
+    This page was last edited on 9 August 2026, at 03:41 (UTC). Text is available under PublicArchive.wiki's community share-alike license; additional terms may apply.
+  </div>
+
+</div>
+</body>
+</html>
