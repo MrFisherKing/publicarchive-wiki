@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AeroDefense SAP Tracker - Archived Thread [Site Defunct]</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: #4d6a8f;
+    font-family: Verdana, Geneva, Arial, sans-serif;
+    font-size: 12px;
+    color: #1a1a1a;
+  }
+  #archiveband {
+    background: #1a1a2e;
+    color: #d0d0e0;
+    font-size: 12px;
+    padding: 8px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  #archiveband a { color: #9db4ff; }
+  #wrap {
+    max-width: 820px;
+    margin: 0 auto 60px auto;
+    background: #e8e8e8;
+    border-left: 1px solid #333;
+    border-right: 1px solid #333;
+  }
+  #sitehead {
+    background: linear-gradient(#3a5a80, #24405e);
+    color: #fff;
+    padding: 10px 16px;
+  }
+  #sitehead .name {
+    font-family: Georgia, serif;
+    font-size: 22px;
+    font-weight: bold;
+  }
+  #sitehead .tag {
+    font-size: 11px;
+    color: #b8cbe0;
+    font-style: italic;
+  }
+  #breadcrumb {
+    background: #cdd9e5;
+    border-bottom: 1px solid #99a;
+    padding: 5px 16px;
+    font-size: 11px;
+  }
+  #breadcrumb a { color: #24405e; }
+  #defunct-note {
+    background: #fff3d6;
+    border-bottom: 2px solid #d8a900;
+    padding: 8px 16px;
+    font-size: 11.5px;
+    color: #5a4600;
+  }
+  #threadhead {
+    padding: 10px 16px 6px 16px;
+    border-bottom: 1px solid #99a;
+  }
+  #threadhead h1 {
+    font-size: 15px;
+    margin: 0 0 4px 0;
+    color: #24405e;
+  }
+  #threadhead .meta {
+    font-size: 11px;
+    color: #555;
+  }
+  .post {
+    display: flex;
+    border-bottom: 1px solid #c3c3c3;
+    background: #fff;
+  }
+  .post:nth-child(even) { background: #f4f6f8; }
+  .userpanel {
+    width: 150px;
+    flex-shrink: 0;
+    padding: 12px 10px;
+    border-right: 1px solid #c3c3c3;
+    font-size: 11px;
+    text-align: center;
+  }
+  .avatar {
+    width: 64px;
+    height: 64px;
+    background: #99a;
+    margin: 0 auto 6px auto;
+    border: 1px solid #667;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #eee;
+    font-size: 22px;
+    font-family: Georgia, serif;
+  }
+  .username {
+    font-weight: bold;
+    color: #24405e;
+    margin-bottom: 2px;
+    word-break: break-word;
+  }
+  .userrole {
+    color: #888;
+    font-size: 10px;
+  }
+  .userjoin {
+    color: #999;
+    font-size: 10px;
+    margin-top: 6px;
+  }
+  .postbody { flex: 1; padding: 10px 14px; }
+  .postmeta {
+    font-size: 10.5px;
+    color: #888;
+    border-bottom: 1px dotted #ccc;
+    padding-bottom: 4px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .postcontent p { margin: 6px 0; line-height: 1.6; }
+  .quote {
+    background: #eef1f5;
+    border-left: 3px solid #9ab;
+    padding: 6px 10px;
+    font-size: 11px;
+    color: #444;
+    margin: 8px 0;
+  }
+  .doc-scan {
+    background: #f2f0e6;
+    border: 1px solid #999;
+    box-shadow: 3px 3px 6px rgba(0,0,0,0.25);
+    padding: 20px 24px;
+    margin: 10px 0;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 11.5px;
+    color: #2a2a2a;
+    max-width: 520px;
+    position: relative;
+  }
+  .doc-scan::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(0deg, rgba(0,0,0,0.015), rgba(0,0,0,0.015) 1px, transparent 1px, transparent 2px);
+    pointer-events: none;
+  }
+  .doc-stamp {
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 2px;
+    border: 2px solid #333;
+    padding: 3px;
+    margin-bottom: 12px;
+    font-size: 11px;
+  }
+  .doc-scan table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+  }
+  .doc-scan td, .doc-scan th {
+    border: 1px solid #555;
+    padding: 3px 6px;
+    font-size: 11px;
+    vertical-align: top;
+  }
+  .redact {
+    background: #111;
+    color: #111;
+    user-select: none;
+    padding: 0 3px;
+    display: inline-block;
+  }
+  .doc-caption {
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 10.5px;
+    color: #666;
+    text-align: center;
+    margin-top: 4px;
+  }
+  .sig-strip {
+    font-size: 10.5px;
+    color: #888;
+    font-style: italic;
+    margin-top: 10px;
+    padding-top: 6px;
+    border-top: 1px dotted #ddd;
+  }
+  #threadfooter {
+    padding: 10px 16px;
+    font-size: 11px;
+    background: #cdd9e5;
+    color: #444;
+  }
+  #footer {
+    background: #1a1a2e;
+    color: #ccc;
+    text-align: center;
+    font-size: 11px;
+    padding: 10px;
+  }
+  #footer a { color: #9db4ff; }
+</style>
+</head>
+<body>
+
+<div id="archiveband">
+  <span>ARCHIVED CAPTURE &mdash; preserved by PublicArchive.wiki community mirror project. Original forum and domain no longer exist.</span>
+  <span><a href="index.html">&larr; Back to Project Second Sight article</a></span>
+</div>
+
+<div id="wrap">
+
+  <div id="sitehead">
+    <div class="name">AeroDefense SAP Tracker</div>
+    <div class="tag">"Where the paper trail actually gets read" &mdash; tracking Special Access Programs through budget lines, FOIA &amp; declassification</div>
+  </div>
+
+  <div id="breadcrumb">
+    <a href="#">Forum Index</a> &raquo; <a href="#">FOIA &amp; Declassification</a> &raquo; <a href="#">Budget Line-Item Oddities</a> &raquo; <strong>This Thread</strong>
+  </div>
+
+  <div id="defunct-note">
+    &#9888; This forum went offline permanently in 2007. The thread below is preserved from a member's personal archive of saved pages; original formatting and broken images are approximated where possible. Some post content could not be recovered.
+  </div>
+
+  <div id="threadhead">
+    <h1>Re: budget line anomalies &mdash; anyone else seen this redacted item?</h1>
+    <div class="meta">Started by <strong>skywatch_ledger</strong> &middot; 14 replies &middot; 6,204 views &middot; Posted 2001</div>
+  </div>
+
+  <div class="post">
+    <div class="userpanel">
+      <div class="avatar">SL</div>
+      <div class="username">skywatch_ledger</div>
+      <div class="userrole">Member</div>
+      <div class="userjoin">Joined: 1999<br>Posts: 212</div>
+    </div>
+    <div class="postbody">
+      <div class="postmeta"><span>#1</span><span>Posted 2001</span></div>
+      <div class="postcontent">
+        <p>Filed a routine FOIA request a while back on some early-90s black budget line items, mostly just curious about R&amp;D allocations in that period, nothing specific in mind. Got a partial response back &mdash; most of it is exactly what you'd expect, boring line items, mostly redacted per usual exemptions. But one entry caught my eye because of how heavily it's blacked out relative to everything around it. Scanned the relevant page below. Anyone recognize the program name, or seen anything else reference it?</p>
+
+        <div class="doc-scan">
+          <div class="doc-stamp">UNCLASSIFIED // FOR OFFICIAL USE ONLY</div>
+          <div>DEPT. OF DEFENSE &mdash; SPECIAL PROGRAMS BUDGET SUMMARY (EXCERPT)</div>
+          <div>FISCAL YEAR: 1991&ndash;1992 &nbsp;&nbsp; PAGE 14 OF <span class="redact">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+          <table>
+            <tr><th>LINE ITEM</th><th>PROGRAM</th><th>ALLOCATION</th></tr>
+            <tr><td>4471-B</td><td>ADV. MATERIALS RESEARCH</td><td>$1,204,000</td></tr>
+            <tr><td>4471-C</td><td>SIGNALS PROCESSING UPGRADE</td><td>$886,500</td></tr>
+            <tr><td>4472-A</td><td><span class="redact">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> &mdash; SUBPROGRAM "PROJECT SECOND SIGHT"</td><td><span class="redact">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td></tr>
+            <tr><td>4472-B</td><td><span class="redact">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td><span class="redact">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td></tr>
+            <tr><td>4473-A</td><td>FACILITIES MAINTENANCE, REGION 4</td><td>$2,410,900</td></tr>
+          </table>
+          <div style="margin-top:10px;">EXEMPTIONS CITED: (b)(1), (b)(3) &mdash; <span class="redact">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+        </div>
+        <div class="doc-caption">[scan_page14_foia_1991.jpg &mdash; image quality reduced from original post]</div>
+
+        <p>Line item 4472-A is the one. Every other item on the page has a normal amount of redaction &mdash; program name visible, dollar figure visible, maybe a sentence blacked out. This one's got the parent program name redacted AND the dollar figure AND it's the only one with a subprogram name actually left visible, "Project Second Sight," which is a weird thing to leave in if they wanted the rest hidden. Not reading anything into it, just seems like an odd redaction choice and wanted to see if anyone's run into this name before.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="post">
+    <div class="userpanel">
+      <div class="avatar">RH</div>
+      <div class="username">retiredhawk_88</div>
+      <div class="userrole">Member</div>
+      <div class="userjoin">Joined: 1998<br>Posts: 1,340</div>
+    </div>
+    <div class="postbody">
+      <div class="postmeta"><span>#2</span><span>Posted 2001</span></div>
+      <div class="postcontent">
+        <p>Redaction inconsistency like that is honestly really common and usually just means two different reviewers touched the same document, one more cautious than the other. Wouldn't read too much into the name being left in, might've just been an oversight, happens constantly with FOIA processing. Still, never heard the name "Second Sight" attached to anything I've seen, and I've been doing this a long time. If it's real it's a small program, not the kind of thing that shows up in appropriations testimony.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="post">
+    <div class="userpanel">
+      <div class="avatar">SL</div>
+      <div class="username">skywatch_ledger</div>
+      <div class="userrole">Member</div>
+      <div class="userjoin">Joined: 1999<br>Posts: 212</div>
+    </div>
+    <div class="postbody">
+      <div class="postmeta"><span>#3</span><span>Posted 2001</span></div>
+      <div class="postcontent">
+        <p>That's fair, and I want to be clear I'm not claiming this proves anything on its own &mdash; could easily be nothing. Mostly just archiving it here in case it ever lines up with something else down the road. Line item 4472-B right below it is fully redacted too, no name, no figure at all, so whatever this cluster of programs is, somebody clearly wanted the whole block gone and mostly succeeded.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="post">
+    <div class="userpanel">
+      <div class="avatar">?</div>
+      <div class="username">quietcorridor</div>
+      <div class="userrole">New Member</div>
+      <div class="userjoin">Joined: 2001<br>Posts: 3</div>
+    </div>
+    <div class="postbody">
+      <div class="postmeta"><span>#4</span><span>Posted 2001</span></div>
+      <div class="postcontent">
+        <p>first post here so go easy on me but i think i've seen that name somewhere before, cant remember where. going to look through some old stuff i have and ill post back if i find it</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="post">
+    <div class="userpanel">
+      <div class="avatar">RH</div>
+      <div class="username">retiredhawk_88</div>
+      <div class="userrole">Member</div>
+      <div class="userjoin">Joined: 1998<br>Posts: 1,340</div>
+    </div>
+    <div class="postbody">
+      <div class="postmeta"><span>#5</span><span>Posted 2001</span></div>
+      <div class="postcontent">
+        <p>Welcome aboard. Please do &mdash; and if you find a source, cite it exactly, page number and all, this community's only useful if we're rigorous about that stuff. There's a lot of noise in this hobby already.</p>
+        <div class="sig-strip">"Declassified eventually just means classified for now." &mdash; sig line, some guy on Usenet, 1994</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="threadfooter">
+    [thread continues &mdash; remaining 9 replies not recovered in this archive]
+  </div>
+
+  <div id="footer">
+    This is a fictional archival recreation created as part of an independent creative documentary project. Not a real forum, organization, or FOIA record. See <a href="index.html">Project Second Sight</a> for context.
+  </div>
+
+</div>
+
+</body>
+</html>
