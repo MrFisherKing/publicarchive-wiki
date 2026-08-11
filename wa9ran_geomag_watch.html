@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>WA9RAN's Ham Radio & Geomagnetic Monitor Page</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: #c0c0c0;
+    font-family: "Times New Roman", Times, serif;
+    color: #000;
+  }
+  #archiveband {
+    background: #1a1a2e;
+    color: #d0d0e0;
+    font-family: -apple-system, Arial, sans-serif;
+    font-size: 12px;
+    padding: 8px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  #archiveband a { color: #9db4ff; }
+  #wrap {
+    max-width: 760px;
+    margin: 18px auto 60px auto;
+    background: #ffffcc;
+    border: 4px ridge #808080;
+    padding: 0;
+  }
+  #banner {
+    background: repeating-linear-gradient(45deg, #000080, #000080 10px, #0000b0 10px, #0000b0 20px);
+    color: #ffff00;
+    text-align: center;
+    padding: 14px 10px 10px 10px;
+    font-family: "Arial Black", Arial, sans-serif;
+    text-shadow: 2px 2px 0 #000;
+  }
+  #banner h1 {
+    margin: 0;
+    font-size: 26px;
+    letter-spacing: 1px;
+  }
+  #banner .sub {
+    color: #ffffff;
+    font-size: 13px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    margin-top: 2px;
+  }
+  #navstrip {
+    background: #000080;
+    padding: 6px 14px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+  }
+  #navstrip a {
+    color: #ffff00;
+    margin: 0 8px;
+    text-decoration: none;
+  }
+  #navstrip a:hover { text-decoration: underline; }
+  #body { padding: 16px 22px; }
+  .hitcounter {
+    font-family: "Courier New", monospace;
+    background: #000;
+    color: #0f0;
+    display: inline-block;
+    padding: 2px 6px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    border: 1px inset #666;
+  }
+  .construction {
+    background: #ffff00;
+    border: 2px dashed #cc0000;
+    color: #cc0000;
+    font-weight: bold;
+    text-align: center;
+    padding: 6px;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    margin: 14px 0;
+  }
+  h2 {
+    font-family: "Arial Black", Arial, sans-serif;
+    font-size: 18px;
+    color: #000080;
+    border-bottom: 2px solid #000080;
+    padding-bottom: 2px;
+    margin-top: 26px;
+  }
+  p, li { line-height: 1.55; font-size: 15px; }
+  hr { border: 1px solid #808080; }
+  .polaroid {
+    background: #fff;
+    border: 1px solid #999;
+    padding: 6px 6px 22px 6px;
+    display: inline-block;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 12px;
+    text-align: center;
+    color: #333;
+  }
+  table.info {
+    border-collapse: collapse;
+    margin: 10px 0;
+    font-size: 14px;
+    background: #fff;
+  }
+  table.info td, table.info th {
+    border: 1px solid #808080;
+    padding: 4px 10px;
+    text-align: left;
+  }
+  table.info th { background: #d8d8f0; }
+  .chartbox {
+    background: #fff;
+    border: 2px inset #808080;
+    padding: 14px;
+    margin: 16px 0;
+  }
+  .chartbox .caption {
+    font-family: "Courier New", monospace;
+    font-size: 12px;
+    color: #333;
+    margin-top: 8px;
+  }
+  .badge-new {
+    color: #cc0000;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-weight: bold;
+    font-size: 13px;
+    animation: blink 1s step-start infinite;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+  .removed-banner {
+    background: #fff0f0;
+    border: 3px solid #cc0000;
+    padding: 14px 18px;
+    margin: 20px 0;
+    font-family: Arial, sans-serif;
+  }
+  .removed-banner h3 {
+    color: #cc0000;
+    margin-top: 0;
+    font-size: 16px;
+  }
+  .guestbook-entry {
+    border-top: 1px dashed #999;
+    padding: 8px 0;
+    font-size: 13px;
+  }
+  .guestbook-entry .name {
+    font-weight: bold;
+    color: #000080;
+  }
+  .guestbook-entry .when {
+    color: #666;
+    font-size: 11px;
+  }
+  #footer {
+    background: #000080;
+    color: #ccc;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    padding: 10px;
+  }
+  #footer a { color: #9db4ff; }
+  .webring {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    margin-top: 20px;
+    padding: 10px;
+    border-top: 1px solid #808080;
+    color: #444;
+  }
+</style>
+</head>
+<body>
+
+<div id="archiveband">
+  <span>ARCHIVED CAPTURE &mdash; preserved by PublicArchive.wiki community mirror project. Original host and ISP no longer exist.</span>
+  <span><a href="index.html">&larr; Back to Project Second Sight article</a></span>
+</div>
+
+<div id="wrap">
+
+  <div id="banner">
+    <h1>WA9RAN's HAM RADIO &amp; GEOMAGNETIC MONITOR PAGE</h1>
+    <div class="sub">"Iono-keep an eye on the ionosphere" &mdash; Est. 1994</div>
+  </div>
+
+  <div id="navstrip">
+    <a href="#about">About Me</a> |
+    <a href="#station">My Station</a> |
+    <a href="#geomag">Geomag Data</a> |
+    <a href="#feb95">Feb '95 Readings</a> |
+    <a href="#guestbook">Guestbook</a> |
+    <a href="#links">Links</a>
+  </div>
+
+  <div id="body">
+
+    <div class="construction">
+      &#9888; PAGE UNDER CONSTRUCTION &#9888; Best viewed at 640x480 &mdash; Netscape Navigator 2.0+
+    </div>
+
+    <p>
+      Hi and welcome to my home page! You are visitor number: <span class="hitcounter">003741</span>
+    </p>
+
+    <h2 id="about">About Me</h2>
+    <p>
+      Hello! My name is Trent and I've been a licensed amateur radio operator (callsign WA9RAN, Extra class) since 1979. I live in rural Marytown and I run this page as a hobby to track solar and geomagnetic activity, since it has a big effect on HF radio propagation &mdash; if you're a fellow ham you know exactly what I mean!! I also dabble in home weather monitoring with a Davis Instruments weather station on my roof.
+    </p>
+    <p>
+      This page gets updated whenever I have new data worth sharing. Feel free to sign my <a href="#guestbook">guestbook</a> below.
+    </p>
+
+    <h2 id="station">My Station</h2>
+    <table class="info">
+      <tr><th>Rig</th><td>Kenwood TS-940</td></tr>
+      <tr><th>Antenna</th><td>Dipole</td></tr>
+      <tr><th>Weather station</th><td>Davis Weather Wizard</td></tr>
+      <tr><th>Magnetometer</th><td>Home-built fluxgate</td></tr>
+      <tr><th>QTH</th><td>Rural Marytown, WI</td></tr>
+    </table>
+
+    <h2 id="geomag">Geomagnetic Data <span class="badge-new">NEW!</span></h2>
+    <p>
+      Since last spring I've been logging my own local magnetometer readings alongside the official K-index bulletins from Boulder, just as a hobby project. Most days it's boring and matches the official numbers just fine. <strong>The first week of February was NOT one of those weeks.</strong>
+    </p>
+
+    <h2 id="feb95">February 1995 Readings</h2>
+    <p>
+      Starting the night of Feb 2nd my homemade fluxgate rig started showing a sustained deviation that did not match ANY of the official K-index bulletins for that period &mdash; Boulder's numbers stayed quiet (K=2, K=1) the whole week, real calm stretch. My own readings, though, showed a spike that doesn't correspond to anything in the public record. I want to be careful here and not jump to conclusions &mdash; my equipment is homemade, and it's entirely possible I've got a calibration problem or some local interference (there's a substation about 2 miles from my QTH). But I've never seen a deviation like this before or since, and I thought it was worth sharing in case anyone else logging geomag data locally saw something similar that week.
+    </p>
+
+    <div class="chartbox">
+      <svg viewBox="0 0 640 220" width="100%" height="220" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0" y="0" width="640" height="220" fill="#fdfdf5"/>
+        <line x1="40" y1="10" x2="40" y2="190" stroke="#333" stroke-width="1"/>
+        <line x1="40" y1="190" x2="620" y2="190" stroke="#333" stroke-width="1"/>
+        <text x="10" y="15" font-size="10" fill="#333" font-family="Courier New">nT</text>
+        <text x="300" y="208" font-size="10" fill="#333" font-family="Courier New">Feb 2 &#8212; Feb 9, 1995 (local fluxgate log)</text>
+        <polyline fill="none" stroke="#0000aa" stroke-width="1.5"
+          points="40,150 90,148 140,151 190,149 220,90 240,40 260,60 280,35 300,70 330,55 360,95 400,140 450,146 500,149 550,148 600,150 620,149" />
+        <text x="205" y="30" font-size="9" fill="#aa0000" font-family="Courier New">&larr; deviation begins</text>
+        <line x1="220" y1="15" x2="220" y2="190" stroke="#aa0000" stroke-width="1" stroke-dasharray="3,3"/>
+        <line x1="400" y1="15" x2="400" y2="190" stroke="#aa0000" stroke-width="1" stroke-dasharray="3,3"/>
+        <text x="405" y="30" font-size="9" fill="#aa0000" font-family="Courier New">deviation ends &rarr;</text>
+      </svg>
+      <div class="caption">
+        FIG 1. Local fluxgate magnetometer log, Feb 2&ndash;9 1995. Baseline noise floor approx. &plusmn;3nT. Peak deviation observed 5&ndash;6 Feb, magnitude well outside instrument's normal error range. Cross-referenced against Boulder K-index bulletin for same period &mdash; no corresponding official disturbance logged.
+      </div>
+    </div>
+
+    <div class="polaroid">
+      [photo: my fluxgate rig &amp; logging setup, basement workbench]<br>
+      <em>(scan pending &mdash; my scanner's at the shop)</em>
+    </div>
+
+    <div class="removed-banner">
+      <h3>SITE UPDATE &mdash; 2/14/95</h3>
+      <p>
+        Got a call today from my ISP saying they'd received a complaint about this page and I need to take the geomagnetic section down "pending review." Not really sure what there is to review, it's just my own data and I said as much. They wouldn't tell me who complained. I'm leaving the rest of the page up for now but pulling the raw data tables until I get this sorted out. Will update when I know more.
+      </p>
+      <p>
+        <em>[Note: page was not updated again after this post. Domain lapsed and was not renewed after 1996. Content above preserved from a personal backup floppy disk, provenance unconfirmed &mdash; see Talk page discussion.]</em>
+      </p>
+    </div>
+
+    <h2 id="guestbook">Guestbook</h2>
+    <div class="guestbook-entry">
+      <div class="name">KC9-listener</div>
+      <div class="when">Feb 8, 1995</div>
+      <p>Trent &mdash; I was up late on 40m that week and had some real weird propagation, signals doing things I couldn't explain. Wonder if it's related. Keep the data up if you can!</p>
+    </div>
+    <div class="guestbook-entry">
+      <div class="name">W9-Marge</div>
+      <div class="when">Feb 10, 1995</div>
+      <p>Neat page! My husband is also a ham, I'll show him this. Hope everything gets sorted with your ISP, seems silly to complain about a hobby page.</p>
+    </div>
+    <div class="guestbook-entry">
+      <div class="name">solarflareguy</div>
+      <div class="when">Feb 13, 1995</div>
+      <p>checked the boulder bulletin myself after reading this, you're right that it doesn't match. probably just your equipment but keep us posted, curious what your ISP says</p>
+    </div>
+
+    <h2 id="links">Links</h2>
+    <ul>
+      <li>NOAA Space Environment Center Bulletins (link no longer active)</li>
+      <li>ARRL Propagation Page (link no longer active)</li>
+      <li>My QSL card gallery (coming soon!)</li>
+    </ul>
+
+    <div class="webring">
+      This page is a member of the Midwest Amateur Radio Web Ring<br>
+      [ &larr; Previous ] [ Random ] [ Next &rarr; ]
+    </div>
+
+  </div>
+
+  <div id="footer">
+    This is a fictional archival recreation created as part of an independent creative documentary project. Not a real historical webpage. See <a href="index.html">Project Second Sight</a> for context.
+  </div>
+
+</div>
+
+</body>
+</html>
